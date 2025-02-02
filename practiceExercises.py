@@ -1,5 +1,5 @@
 
-def printmyinfo():
+def print_my_info():
     my_age = 37
 
     my_name = "Johan"
@@ -8,7 +8,7 @@ def printmyinfo():
 
     print(msg)
 
-def stringmanipulation():
+def string_manipulation():
     msg = "Python is an amazing programming language!"
 
     print(msg)
@@ -23,7 +23,7 @@ def stringmanipulation():
 
     print(replaced_msg)
 
-def favoritefoodlist():
+def favorite_food_list():
     favorite_foods = ["chocolate", "black tea", "clementine"]
 
     print(f"These are my favorite foods: {favorite_foods}")
@@ -49,13 +49,82 @@ def favoritefoodlist():
     print(f"And here is the list again, with nothing changed: {favorite_foods}")
     print(f"and here are the items from the list, that starts with the letter \"c\" {food_starting_with_c}")
 
-def listcomprehension():
+def list_comprehension():
     numbers = [1,2,3,4,5,6,7,8,9,10]
 
     even_numbers = [x for x in numbers if x % 2 == 0]
 
     print(even_numbers)
 
-    
+    numbers_div_by_2_and_3 = [x for x in numbers if x % 2 == 0 and x % 3 == 0]
 
-favoritefoodlist()
+    print(numbers_div_by_2_and_3)
+
+def student_dictionaries():
+    student_scores = {
+        "Anna": 76,
+        "Bert": 59,
+        "Clara": 66}
+
+    for x in student_scores:
+        print(x)
+
+    # Adds another student
+    student_scores.update({"Denni": 94})
+
+    for x in student_scores:
+        print(x)
+
+    # Update the score of one student
+    student_scores.update({"Anna": 92})
+
+    for x in student_scores:
+        print(x)
+
+    # Prints every score above 90
+    [print(f"Name: {name}") for name, score in student_scores.items() if score > 90]
+
+    # Calc and prints average scores
+    print(sum(student_scores.values()) / len(student_scores))
+
+def dictionary_comprehension():
+
+    squared_dict = {x: x**2 for x in range(1,6)}
+    print(squared_dict)
+
+    # is this the same "x" as is used above?
+    stringed_numbers_dict = {x: str(x) for x in range(1,6)}
+    print(stringed_numbers_dict)
+
+    odd_numbers_dict = {x: x % 2 != 0 for x in range(1,6)}
+    print(odd_numbers_dict)
+
+    more_odd_numbers = {x: x for x in range(1,6) if x % 2 != 0}
+    print(more_odd_numbers)
+
+def grade_calculator(score):
+    if not isinstance(score, (int,float)):
+        raise TypeError("This argument must be a number")
+
+    if score >= 90:
+        return "A"
+    if score >=80:
+        return "B"
+    if score >= 70:
+        return "C"
+    else:
+        return "F"
+
+
+
+scores = (15,25,35,45,55,65,75,85,95,105)
+
+# the following two lines of code does the same thing, one is my current attempt, and the other uses code comprehension
+for x in scores: print(grade_calculator(x))
+
+[print(grade_calculator(score) for score in scores)]
+
+# studentdictionaries()
+
+# dictionarycomprehension()
+
