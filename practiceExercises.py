@@ -161,6 +161,8 @@ class Bicycle:
 def test_movement(object):
     print(object.move())
 
+
+# Exercise 11
 universal_truth = "the Logos is without Beginning or End"
 
 def the_outerworld():
@@ -173,19 +175,28 @@ def the_conditioning():
     # interesting, does the global variable need to be declared on another line then it is modified on?
     universal_truth = "Through the Logos, my Chains are Lessened"
 
-# Exercise 11
 the_outerworld()
 print(universal_truth)
 
 the_conditioning()
 print(universal_truth)
 
+# Exercise 12
+def safe_divide(dividend, divisor):
 
+    try:
+        return dividend/divisor
+    except ZeroDivisionError:
+        print("Couldn't divide by zero. Returning 0.")
+        return 0
+    except TypeError:
+        print("Was unable to divide, argument received wasn't a number")
+        return None
 
-# scores = (15,25,35,45,55,65,75,85,95,105)
+print(safe_divide(15,3))
 
-# the following two lines of code does the same thing, one is my current attempt, and the other uses code comprehension
-# for x in scores: print(grade_calculator(x))
+print(safe_divide(10,0))
 
-# [print(grade_calculator(score) for score in scores)]
+print(safe_divide("Hello", 5))
 
+print(safe_divide(33,11))
