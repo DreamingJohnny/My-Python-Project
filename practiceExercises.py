@@ -125,8 +125,6 @@ def calculate_total(price, taxe_rate, discount):
 
     return "{:.2f}".format(total)
 
-print(calculate_total(99, 0.07, 10))
-
 class Book:
     def __init__(self, title, author, year):
         self.title = title
@@ -141,11 +139,47 @@ class Book:
     
     def __str__(self):
         return f"{self.title}, {self.author}, {self.year}"
+
+class Car:
+    def __init__(self, model, year):
+        self.model = model
+        self.year = year
+        wheel = 4
+
+    def move(self):
+        return f"A car of the model {self.model} goes broom, broom."
+
+class Bicycle:
+    def __init__(self, model, year):
+        self.model = model
+        self.year = year
+        wheel = 2
+
+    def move(self):
+        return f"A bike of the model {self.model} swooshes past."
+
+def test_movement(object):
+    print(object.move())
+
+universal_truth = "the Logos is without Beginning or End"
+
+def the_outerworld():
+    universal_truth = "the Darkness that Comes Before"
+
+def the_conditioning():
     
+    global universal_truth
+    
+    # interesting, does the global variable need to be declared on another line then it is modified on?
+    universal_truth = "Through the Logos, my Chains are Lessened"
 
-lord_of_the_rings = Book("Lord of the Rings","Tolkien", 1950)
+# Exercise 11
+the_outerworld()
+print(universal_truth)
 
-print(lord_of_the_rings.get_info())
+the_conditioning()
+print(universal_truth)
+
 
 
 # scores = (15,25,35,45,55,65,75,85,95,105)
