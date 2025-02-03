@@ -115,16 +115,43 @@ def grade_calculator(score):
     else:
         return "F"
 
+def calculate_total(price, taxe_rate, discount):
+
+    # Converts all variables to positive
+    price, taxe_rate, discount = abs(price), abs(taxe_rate), abs(discount)
+
+    total = price + (price*taxe_rate)
+    total -= discount
+
+    return "{:.2f}".format(total)
+
+print(calculate_total(99, 0.07, 10))
+
+class Book:
+    def __init__(self, title, author, year):
+        self.title = title
+        self.author = author
+        self.year = year
+
+    def get_age(self):
+        return 2025-self.year
+
+    def get_info(self):
+        return f"{self.title}, {self.author}, {self.year}"
+    
+    def __str__(self):
+        return f"{self.title}, {self.author}, {self.year}"
+    
+
+lord_of_the_rings = Book("Lord of the Rings","Tolkien", 1950)
+
+print(lord_of_the_rings.get_info())
 
 
-scores = (15,25,35,45,55,65,75,85,95,105)
+# scores = (15,25,35,45,55,65,75,85,95,105)
 
 # the following two lines of code does the same thing, one is my current attempt, and the other uses code comprehension
-for x in scores: print(grade_calculator(x))
+# for x in scores: print(grade_calculator(x))
 
-[print(grade_calculator(score) for score in scores)]
-
-# studentdictionaries()
-
-# dictionarycomprehension()
+# [print(grade_calculator(score) for score in scores)]
 
